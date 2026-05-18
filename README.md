@@ -1,101 +1,56 @@
-# Stellar Notes DApp
+# Stellar Attendance Smart Contract
+contract id = GC2MSAAPPMPWN3P5VZOBRGLZISF32R6WVS4H22MUN36AADXYZH4Q6PGC
 
-**Stellar Notes DApp** - Blockchain-Based Decentralized Note-Taking System
+**Stellar Attendance System** - Blockchain-Based Decentralized Event Presences & POAP System
 
 ## Project Description
 
-Stellar Notes DApp is a decentralized smart contract solution built on the Stellar blockchain using Soroban SDK. It provides a secure, immutable platform for managing personal notes directly on the blockchain. The contract ensures that your data is stored transparently and is only manageable through predefined smart contract functions, eliminating reliance on centralized database providers.
+Stellar Attendance System is a decentralized smart contract solution built on the Stellar blockchain using the Soroban SDK. It provides a secure and immutable platform for recording event, class, or bootcamp attendance directly on the blockchain. 
 
-The system allows users to create, view, and delete notes, leveraging the efficiency and security of the Stellar network. Each note is uniquely identified and stored within the contract's instance storage, ensuring data persistence and reliability.
+By replacing fragile paper-based systems or centralized databases (like Google Forms), this contract ensures that attendance data (recording NIM/Student ID and Name) is transparent, tamper-proof, and reliably stored. This project focuses purely on the backend/smart contract logic, allowing interactions and testing directly via Soroban Studio or the Soroban CLI.
 
 ## Project Vision
 
-Our vision is to revolutionize personal productivity in the digital age by:
+Our vision is to revolutionize event management and academic credentialing by:
 
-- **Decentralizing Data**: Moving note-taking from centralized servers to a global, distributed blockchain
-- **Ensuring Ownership**: Empowering users to have complete control and ownership over their digital thoughts and information
-- **Guaranteeing Immutability**: Providing a permanent, tamper-proof record of notes that cannot be altered or deleted by third parties
-- **Enhancing Privacy**: Leveraging blockchain security to protect personal information from unauthorized access
-- **Building Trustless Systems**: Creating a platform where data integrity is guaranteed by code, not by company promises
-
-We envision a future where digital information is truly personal and sovereign, empowering individuals with complete autonomy over their digital assets.
+- **Decentralizing Data**: Moving attendance records from centralized servers to a global, distributed ledger.
+- **Guaranteeing Immutability**: Providing a permanent, tamper-proof record of attendance that cannot be altered, forged, or manipulated by third parties.
+- **Ensuring Ownership**: Paving the way for students to own their attendance records as verifiable digital portfolios or POAPs (Proof of Attendance Protocols).
+- **Building Trustless Systems**: Creating a platform where presence integrity is guaranteed by code, eliminating the need for manual verification.
 
 ## Key Features
 
-### 1. **Simple Note Creation**
-
-- Create notes with just one function call
-- Specify title and content for each note
-- Automated ID generation for unique identification
-- Persistent storage on the Stellar blockchain
+### 1. **Immutable Attendance Recording**
+- Record a participant's presence with a single function call.
+- Securely stores the participant's `nim` (Nomor Induk Mahasiswa / Student ID) and `name`.
+- Automated unique ID generation for each attendance record.
 
 ### 2. **Efficient Data Retrieval**
+- Fetch all stored attendance records in a single call.
+- Structured data representation (`Vec<AttendanceRecord>`) for easy auditing by event organizers or lecturers.
 
-- Fetch all stored notes in a single call
-- Structured data representation for easy frontend integration
-- Quick access to your entire note collection
-- Real-time synchronization with the blockchain state
-
-### 3. **Secure Deletion**
-
-- Remove specific notes using their unique IDs
-- Permanent removal from the contract storage
-- Clean and efficient storage management
-- Immediate update of the note list after deletion
+### 3. **Secure Record Management**
+- Capability to remove specific invalid attendance records using their unique IDs.
+- Immediate update of the ledger state after modification.
 
 ### 4. **Transparency and Security**
-
-- View all note activities on the blockchain
-- Blockchain-based verification of all storage actions
-- Immutable records of note creation and deletion
-- Protected against unauthorized modifications
-
-### 5. **Stellar Network Integration**
-
-- Leverages the high speed and low cost of Stellar
-- Built using the modern Soroban Smart Contract SDK
-- Scalable architecture for growing note collections
-- Interoperable with other Stellar-based services
-
-## Contract Details
-
-- Contract Address: CBLU4IUASQ4WUMOXBFLZRSBBLILGOH33GS4LUPKFBCCCMJCDQNMF7G2M
-  (Screenshot has been removed)
+- View all attendance activities transparently on the Stellar network.
+- Protected against unauthorized modifications through blockchain consensus.
 
 ## Future Scope
 
 ### Short-Term Enhancements
-
-1. **Note Encryption**: Support for end-to-end encryption of note content for enhanced privacy
-2. **Category Management**: Add tags and categories to organize notes efficiently
-3. **Rich Text Support**: Extend support beyond plain text to include Markdown and formatted content
-4. **Search Functionality**: Implement advanced search filters for large note collections
+1. **Wallet Address Integration**: Upgrade the `nim` parameter to accept Soroban `Address` types, mapping physical students to actual cryptographic wallets.
+2. **Timestamping**: Add automated blockchain timestamps to record exactly *when* a student submitted their presence.
+3. **Event Structuring**: Allow the contract to manage multiple distinct events/classes simultaneously.
 
 ### Medium-Term Development
-
-5. **Collaborative Notes**: Implement multi-signature requirements for shared or collaborative note-taking
-   - Shared access for multiple addresses
-   - Permission-based editing and viewing
-   - Version history tracking
-6. **Notification System**: Off-chain bridge to alert users of new updates or shared notes
-7. **Asset Attachment**: Capability to attach digital assets or tokens to specific notes
-8. **Inter-Contract Integration**: Allow other smart contracts to interact with and store data in the notes contract
+4. **POAP Minting**: Automatically mint and send a Non-Fungible Token (NFT) badge to the attendee's wallet upon successful presence verification.
+5. **Geolocation/Backend Validation**: Integrate an off-chain oracle or backend server to verify the user's GPS location or scan a dynamic QR code before allowing the smart contract to be invoked.
 
 ### Long-Term Vision
-
-9. **Cross-Chain Synchronization**: Extend note storage to multiple blockchain networks
-10. **Decentralized UI Hosting**: Host the frontend on IPFS or similar decentralized platforms
-11. **AI-Powered Summarization**: Optional integration with AI to help users summarize their notes
-12. **Privacy Layers**: Implement zero-knowledge proofs for completely private note content
-13. **DAO Governance**: Community-driven protocol improvements and feature prioritization
-14. **Identity Management**: Integration with decentralized identity (DID) systems for user management
-
-### Enterprise Features
-
-15. **Corporate Documentation**: Adapt the system for secure corporate record-keeping
-16. **Immutable Logging**: Create time-locked logs for audit purposes
-17. **Automated Reporting**: Automatic note triggers for periodic reporting
-18. **Multi-Language Support**: Expand accessibility with internationalization
+6. **University-Wide Integration**: Adopt the system as the standard decentralized presence protocol across faculties.
+7. **Cross-Chain Synchronization**: Extend presence credential storage to multiple networks.
 
 ---
 
@@ -103,16 +58,21 @@ We envision a future where digital information is truly personal and sovereign, 
 
 - Soroban SDK
 - Rust programming language
-- Stellar blockchain network
+- Stellar blockchain network (Testnet/Futurenet)
+- **Soroban Studio** (Recommended for cloud compilation and direct interaction)
 
-## Getting Started
+## Getting Started (Via Soroban Studio)
 
-Deploy the smart contract to Stellar's Soroban network and interact with it using the three main functions:
+Since this project focuses on the smart contract architecture, you can easily deploy and interact with it without a frontend:
 
-- `create_note()` - Create a new note with a title and content
-- `get_notes()` - Retrieve all stored notes from the contract
-- `delete_note()` - Remove a specific note by its ID
+1. Open this project in **Soroban Studio**.
+2. **Build** the contract using the provided tools in the studio.
+3. **Deploy** the contract to the Stellar **Testnet**.
+4. Use the **Interact** panel to test the following main functions:
+   - `record_attendance(nim: String, name: String)` - Add a new student presence to the blockchain.
+   - `get_attendance()` - Retrieve the list of all recorded attendances.
+   - `remove_attendance(id: u64)` - Delete a specific record by its generated ID.
 
 ---
 
-**Stellar Notes DApp** - Securing Your Thoughts on the Blockchain
+**Stellar Attendance System** - Securing Your Credentials on the Blockchain
