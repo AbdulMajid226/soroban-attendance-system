@@ -1,5 +1,5 @@
 # Stellar Attendance Smart Contract
-contract id = GC2MSAAPPMPWN3P5VZOBRGLZISF32R6WVS4H22MUN36AADXYZH4Q6PGC
+contract id = CDH75IYDEYHLGJEBAVYIZO5TJ5WWLF2XPW525OYAIWJWFW3O6VANMSQN
 
 **Stellar Attendance System** - Blockchain-Based Decentralized Event Presences & POAP System
 
